@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>弹幕攻城战 · 赤焰 vs 苍蓝</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <div id="stage">
+    <canvas id="game"></canvas>
+    <div id="loading">加载中…</div>
+    <div id="fps"></div>
+  </div>
+  <aside id="sim">
+    <div class="sim-head">
+      <b>📱 模拟直播间</b>
+      <span id="conn" class="tag">本地模拟</span>
+    </div>
+    <div class="row tools">
+      <button id="sound">🔇 音效关</button>
+      <button id="fs">⛶ 全屏</button>
+      <button id="panel">隐藏面板 (H)</button>
+      <button id="restart">↻ 重开</button>
+    </div>
+    <div class="sim-sec">
+      <label class="row"><input type="checkbox" id="auto" checked> 机器人观众自动互动</label>
+      <label class="row">弹幕热度 <input type="range" id="heat" min="1" max="40" value="10"> <span id="heatv"></span> 条/秒</label>
+      <label class="row">礼物频率 <input type="range" id="gifts" min="0" max="40" value="10"> <span id="giftsv"></span></label>
+    </div>
+    <div class="sim-sec">
+      <div class="row"><input id="nick" value="我是铁粉" maxlength="10" placeholder="昵称"></div>
+      <div class="row"><input id="msg" placeholder="输入弹幕，回车发送" maxlength="30"><button id="send">发送</button></div>
+      <div class="row quick">
+        <button data-c="1" class="red">1 赤焰军</button><button data-c="2" class="blue">2 苍蓝军</button>
+        <button data-c="冲">冲</button><button data-c="666">666</button>
+      </div>
+      <div class="row quick">
+        <button data-c="剑">剑</button><button data-c="弓">弓</button><button data-c="法">法</button>
+        <button data-like="20">👍 点赞×20</button>
+      </div>
+      <div class="row quick gifts">
+        <button data-g="小心心">💗 小心心</button>
+        <button data-g="小心心" data-n="10">💗×10</button>
+        <button data-g="玫瑰">🌹 玫瑰</button>
+      </div>
+      <div class="row quick gifts">
+        <button data-g="甜甜圈">🍩 甜甜圈</button>
+        <button data-g="火箭" class="rocket">🚀 火箭</button>
+      </div>
+    </div>
+    <div class="sim-sec rules">
+      <b>玩法</b>
+      <ul>
+        <li><code>1</code> / <code>2</code> 加入赤焰军 / 苍蓝军</li>
+        <li><code>冲</code> 派出一个头顶你名字的士兵</li>
+        <li><code>剑</code> <code>弓</code> <code>法</code> 切换职业并出兵</li>
+        <li><code>666</code> 全军士气：攻击 ×1.5、移速提升 6 秒</li>
+        <li>点赞：修复己方城墙</li>
+        <li>💗 3 个精英兵　🌹 骑士</li>
+        <li>🍩 石巨人从天而降　🚀 巨龙</li>
+        <li>击杀、送礼攒能量，满了自动释放大招：<br>赤焰「陨石天降」/ 苍蓝「雷霆审判」</li>
+        <li>最后 30 秒决战，伤害 ×1.5</li>
+        <li>3 分钟一局，推倒对方城堡或时间到时城堡血多者胜</li>
+      </ul>
+    </div>
+    <div class="sim-sec small">
+      连接本地后端：网址后加 <code>?ws=ws://localhost:8080</code><br>
+      直播采集时按 <code>H</code> 隐藏右侧面板。
+    </div>
+  </aside>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

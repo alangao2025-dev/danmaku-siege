@@ -1,0 +1,36 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #0a0716; color: #ece6ff; font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+#app { display: flex; height: 100%; }
+#stage { position: relative; flex: 1; display: flex; align-items: center; justify-content: center; min-width: 0; padding: 8px; background: radial-gradient(ellipse at center, #1c1438 0%, #0a0716 70%); }
+canvas { width: 100%; max-height: 100%; aspect-ratio: 16 / 9; object-fit: contain; border-radius: 10px; box-shadow: 0 10px 50px #000a; background: #1a1430; }
+#loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 20px; color: #ffe9a0; }
+#fps { position: absolute; left: 16px; top: 12px; font: 11px monospace; color: #fff6; pointer-events: none; }
+#sim { width: 320px; flex-shrink: 0; overflow-y: auto; background: #140f28; border-left: 1px solid #2a2350; padding: 12px; font-size: 13px; }
+.sim-head { display: flex; justify-content: space-between; align-items: center; font-size: 15px; margin-bottom: 8px; }
+.tag { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: #352d60; }
+.tag.on { background: #1b8a4c; }
+.sim-sec { border-top: 1px solid #2a2350; padding: 10px 0; }
+.row { display: flex; gap: 6px; align-items: center; margin: 6px 0; }
+.row input[type=range] { flex: 1; }
+input:not([type]) { flex: 1; background: #0c0920; border: 1px solid #3a3170; color: #fff; padding: 7px 8px; border-radius: 6px; min-width: 0; }
+button { background: #2d2660; color: #fff; border: 0; padding: 7px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; white-space: nowrap; }
+button:hover { background: #40368a; }
+button:active { transform: scale(0.96); }
+.tools button { flex: 1; padding: 6px 4px; font-size: 11px; background: #231d48; }
+.quick { flex-wrap: wrap; }
+.quick button { flex: 1 1 auto; }
+button.red { background: #9a1c2c; } button.red:hover { background: #c22a3c; }
+button.blue { background: #1c4a9a; } button.blue:hover { background: #2a62c2; }
+.gifts button { background: #5a2458; } .gifts button:hover { background: #7a3376; }
+button.rocket { background: linear-gradient(90deg, #a8306a, #d9752a); }
+.rules ul { margin: 6px 0 0; padding-left: 18px; line-height: 1.8; color: #bdb3e0; }
+code { background: #0c0920; padding: 1px 5px; border-radius: 4px; color: #ffd55e; }
+.small { color: #8a80b4; font-size: 12px; line-height: 1.7; }
+body.clean #sim, body.clean #fps { display: none; }
+body.clean #stage { padding: 0; }
+body.clean canvas { border-radius: 0; box-shadow: none; }
+@media (max-width: 860px) {
+  #app { flex-direction: column; }
+  #sim { width: 100%; border-left: 0; border-top: 1px solid #2a2350; }
+  #stage { flex: none; }
+}
